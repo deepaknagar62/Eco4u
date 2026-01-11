@@ -1,0 +1,215 @@
+// All Products Data with Categories
+export const allProducts = [
+  // Home Care Products
+  {
+    id: 'compostable-garbage-bags',
+    name: 'Compostable Garbage Bags',
+    image: '/cotton buds jar/1.png',
+    price: 299,
+    mrp: 350,
+    rating: 4.8,
+    reviews: 25,
+    categories: ['home-care', 'eco-utilities'],
+    badge: 'Eco-Friendly',
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'all-purpose-cleaner',
+    name: 'All-Purpose Cleaner (Eco-Friendly Concentrate)',
+    image: '/cotton buds jar/1.png',
+    price: 249,
+    mrp: 299,
+    rating: 4.7,
+    reviews: 18,
+    categories: ['home-care'],
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'natural-dish-wash-liquid',
+    name: 'Natural Dish Wash Liquid',
+    image: '/cotton buds jar/1.png',
+    price: 199,
+    mrp: 249,
+    rating: 4.9,
+    reviews: 32,
+    categories: ['home-care'],
+    badge: 'Bestseller',
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'natural-floor-cleaner',
+    name: 'Natural Floor Cleaner – Refill Sachets',
+    image: '/cotton buds jar/1.png',
+    price: 149,
+    mrp: 199,
+    rating: 4.6,
+    reviews: 15,
+    categories: ['home-care'],
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'shoe-cleaner-wipes',
+    name: 'Shoe Cleaner Wipes – Plant-Based',
+    image: '/cotton buds jar/1.png',
+    price: 179,
+    mrp: 229,
+    rating: 4.5,
+    reviews: 12,
+    categories: ['home-care', 'cleaning-essentials'],
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'reusable-produce-bags',
+    name: 'Reusable Produce Bags (Fruits & Vegetables)',
+    image: '/cotton buds jar/1.png',
+    price: 299,
+    mrp: 349,
+    rating: 4.8,
+    reviews: 20,
+    categories: ['home-care', 'eco-utilities'],
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'bamboo-clothes-pegs',
+    name: 'Bamboo Clothes Pegs / Clips',
+    image: '/cotton buds jar/1.png',
+    price: 199,
+    mrp: 249,
+    rating: 4.7,
+    reviews: 14,
+    categories: ['home-care', 'bamboo-essentials'],
+    offer: 'Add 4 Pay for 2',
+  },
+
+  // Kitchen Essentials
+  {
+    id: 'bamboo-toothpick',
+    name: 'Bamboo Toothpick',
+    image: '/toothpick/1.png',
+    price: 99,
+    mrp: 129,
+    rating: 4.6,
+    reviews: 28,
+    categories: ['kitchen-essentials', 'bamboo-essentials'],
+    offer: 'Add 4 Pay for 2',
+    detailImages: [
+      '/toothpick/1.png',
+      '/toothpick/2.png',
+      '/toothpick/3.png',
+      '/toothpick/4.png',
+      '/toothpick/5.png',
+      '/toothpick/6.png',
+      '/toothpick/7.png',
+    ],
+  },
+  {
+    id: 'bamboo-kitchen-towels-all-purpose',
+    name: 'Reusable Bamboo Kitchen Towels – All Purpose',
+    image: '/cotton buds jar/1.png',
+    price: 349,
+    mrp: 399,
+    rating: 4.9,
+    reviews: 35,
+    categories: ['kitchen-essentials', 'bamboo-essentials'],
+    badge: 'Bestseller',
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'bamboo-kitchen-towels-face',
+    name: 'Reusable Bamboo Kitchen Towels – Face Use',
+    image: '/cotton buds jar/1.png',
+    price: 299,
+    mrp: 349,
+    rating: 4.8,
+    reviews: 22,
+    categories: ['kitchen-essentials', 'bamboo-essentials'],
+    offer: 'Add 4 Pay for 2',
+  },
+
+  // Cleaning Essentials
+  {
+    id: 'bamboo-kitchen-towels-car',
+    name: 'Reusable Bamboo Kitchen Towels – Car Cleaning',
+    image: '/cotton buds jar/1.png',
+    price: 349,
+    mrp: 399,
+    rating: 4.7,
+    reviews: 18,
+    categories: ['cleaning-essentials', 'bamboo-essentials'],
+    offer: 'Add 4 Pay for 2',
+  },
+
+  // Personal Care
+  {
+    id: 'bamboo-toothbrush',
+    name: 'Bamboo Toothbrush',
+    image: '/cotton buds jar/1.png',
+    price: 149,
+    mrp: 199,
+    rating: 4.9,
+    reviews: 45,
+    categories: ['personal-care', 'bamboo-essentials'],
+    badge: 'Bestseller',
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'bamboo-cotton-ear-buds-jar',
+    name: 'Bamboo Cotton Ear Buds – Jar Pack',
+    image: '/cotton buds jar/1.png',
+    price: 199,
+    mrp: 249,
+    rating: 4.8,
+    reviews: 38,
+    categories: ['personal-care', 'bamboo-essentials'],
+    badge: 'Popular',
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'bamboo-cotton-ear-buds-box',
+    name: 'Bamboo Cotton Ear Buds – Square Box Pack',
+    image: '/cotton buds jar/1.png',
+    price: 179,
+    mrp: 229,
+    rating: 4.7,
+    reviews: 30,
+    categories: ['personal-care', 'bamboo-essentials'],
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'foot-deodorizer-spray',
+    name: 'Foot Deodorizer Spray – Natural & Eco-Friendly',
+    image: '/cotton buds jar/1.png',
+    price: 249,
+    mrp: 299,
+    rating: 4.6,
+    reviews: 16,
+    categories: ['personal-care'],
+    offer: 'Add 4 Pay for 2',
+  },
+  {
+    id: 'sanitary-disposal-bags',
+    name: 'Sanitary Disposal Bags (Biodegradable)',
+    image: '/cotton buds jar/1.png',
+    price: 199,
+    mrp: 249,
+    rating: 4.8,
+    reviews: 24,
+    categories: ['personal-care', 'eco-utilities'],
+    offer: 'Add 4 Pay for 2',
+  },
+];
+
+// Filter products by category
+export const getProductsByCategory = (categorySlug) => {
+  if (categorySlug === 'shop-all') {
+    return allProducts;
+  }
+  return allProducts.filter(product => 
+    product.categories.includes(categorySlug)
+  );
+};
+
+// Get product by ID
+export const getProductById = (productId) => {
+  return allProducts.find(product => product.id === productId);
+};
