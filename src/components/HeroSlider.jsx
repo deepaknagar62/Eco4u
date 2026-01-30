@@ -6,24 +6,19 @@ const HeroSlider = () => {
   const slides = [
     {
       id: 1,
-      title: 'SANKARANTI SALE',
-      subtitle: 'BUY 2 GET 2 FREE',
-      bgColor: 'from-purple-600 to-purple-800',
-      image: '/slides/slide1.jpg',
+      image: '/WEB All Baneers Design PNG IMAGES/Banner-01.png',
     },
     {
       id: 2,
-      title: 'ECO-FRIENDLY PRODUCTS',
-      subtitle: 'SAVE THE PLANET',
-      bgColor: 'from-green-600 to-green-800',
-      image: '/slides/slide2.jpg',
+      image: '/WEB All Baneers Design PNG IMAGES/Banner-02.png',
     },
     {
       id: 3,
-      title: 'NEW ARRIVALS',
-      subtitle: 'DISCOVER OUR LATEST COLLECTION',
-      bgColor: 'from-blue-600 to-blue-800',
-      image: '/slides/slide3.jpg',
+      image: '/WEB All Baneers Design PNG IMAGES/Banner-03.png',
+    },
+    {
+      id: 4,
+      image: '/WEB All Baneers Design PNG IMAGES/Banner-04.png',
     },
   ];
 
@@ -48,56 +43,35 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="relative h-[500px] md:h-[600px] overflow-hidden">
-      {/* Slides */}
-      {slides.map((slide, index) => (
-        <div
-          key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <div className={`w-full h-full bg-gradient-to-r ${slide.bgColor} relative`}>
-            {/* Decorative Elements */}
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute top-10 left-10 w-32 h-32 border-4 border-white rounded-full"></div>
-              <div className="absolute bottom-20 right-20 w-48 h-48 border-4 border-white rounded-full"></div>
-              <div className="absolute top-1/2 left-1/4 w-24 h-24 border-4 border-white transform rotate-45"></div>
-            </div>
-
-            {/* Content */}
-            <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
-              <div className="max-w-4xl">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 animate-fadeIn">
-                  {slide.title}
-                </h2>
-                <p className="text-2xl md:text-4xl lg:text-5xl font-bold text-primary mb-8 animate-fadeIn">
-                  {slide.subtitle}
-                </p>
-                <button className="btn-primary text-lg px-8 py-4 animate-fadeIn">
-                  Shop Now
-                </button>
-              </div>
-            </div>
-
-            {/* Product Images (decorative) */}
-            <div className="absolute bottom-0 left-0 right-0 flex justify-around items-end px-8 pb-8 opacity-80">
-              <div className="hidden md:block w-32 h-32 bg-white/10 rounded-lg backdrop-blur-sm"></div>
-              <div className="hidden lg:block w-40 h-40 bg-white/10 rounded-lg backdrop-blur-sm"></div>
-              <div className="hidden md:block w-32 h-32 bg-white/10 rounded-lg backdrop-blur-sm"></div>
-            </div>
+    <div className="relative w-full bg-gray-100">
+      {/* Slides Container - Using aspect ratio instead of fixed heights */}
+      <div className="relative w-full aspect-[16/9] sm:aspect-[16/8] md:aspect-[16/7] lg:aspect-[16/6] overflow-hidden">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img 
+              src={slide.image}
+              alt={`Banner ${slide.id}`}
+              className="w-full h-full object-cover"
+              loading={index === 0 ? 'eager' : 'lazy'}
+              sizes="100vw"
+            />
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - Mobile optimized */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-primary text-white hover:text-black rounded-full flex items-center justify-center transition-all duration-300 z-20"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/50 hover:bg-primary text-white hover:text-black rounded-full flex items-center justify-center transition-all duration-300 z-20 touch-manipulation"
         aria-label="Previous Slide"
       >
         <svg
-          className="w-6 h-6"
+          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -113,11 +87,11 @@ const HeroSlider = () => {
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-primary text-white hover:text-black rounded-full flex items-center justify-center transition-all duration-300 z-20"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-black/50 hover:bg-primary text-white hover:text-black rounded-full flex items-center justify-center transition-all duration-300 z-20 touch-manipulation"
         aria-label="Next Slide"
       >
         <svg
-          className="w-6 h-6"
+          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -130,22 +104,6 @@ const HeroSlider = () => {
           />
         </svg>
       </button>
-
-      {/* Dots Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide
-                ? 'bg-primary w-8'
-                : 'bg-white/50 hover:bg-white/80'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 };

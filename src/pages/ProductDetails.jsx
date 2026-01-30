@@ -1,17 +1,121 @@
-import { useState, useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { useParams, Navigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductById } from '../data/products';
 
 const ProductDetails = () => {
   const { productId } = useParams();
+  const location = useLocation();
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const imageContainerRef = useRef(null);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Scroll to top when component mounts or productId changes
+  // Comprehensive scroll management for mobile
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [productId]);
+    const forceScrollTop = () => {
+      // Multiple methods to ensure scroll to top
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      
+      // Force viewport to top
+      if (window.pageYOffset !== 0) {
+        window.pageYOffset = 0;
+      }
+      
+      // Mobile-specific scroll reset
+      if (document.scrollingElement) {
+        document.scrollingElement.scrollTop = 0;
+      }
+    };
+
+    // Disable scroll restoration completely
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Check if we're navigating from product card
+    const isNavigatingFromCard = sessionStorage.getItem('navigatingToProduct') === 'true';
+    
+    if (isNavigatingFromCard) {
+      // Clear the flag
+      sessionStorage.removeItem('navigatingToProduct');
+      sessionStorage.removeItem('targetScrollPosition');
+      
+      // Immediate scroll reset
+      forceScrollTop();
+      
+      // Use multiple timing strategies for different mobile browsers
+      requestAnimationFrame(() => {
+        forceScrollTop();
+        
+        requestAnimationFrame(() => {
+          forceScrollTop();
+        });
+      });
+      
+      // Fallback timeouts for stubborn browsers
+      setTimeout(forceScrollTop, 0);
+      setTimeout(forceScrollTop, 1);
+      setTimeout(forceScrollTop, 10);
+      setTimeout(forceScrollTop, 50);
+      
+      // Final fallback
+      setTimeout(() => {
+        forceScrollTop();
+        setIsLoading(false);
+      }, 100);
+    } else {
+      // Regular navigation
+      forceScrollTop();
+      setTimeout(() => setIsLoading(false), 50);
+    }
+
+    // Prevent any scroll restoration on page visibility change
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        forceScrollTop();
+      }
+    };
+
+    // Prevent scroll restoration on focus
+    const handleFocus = () => {
+      forceScrollTop();
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', handleFocus);
+    window.addEventListener('pageshow', forceScrollTop);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', handleFocus);
+      window.removeEventListener('pageshow', forceScrollTop);
+    };
+  }, [productId, location]);
+
+  // Additional effect to handle any scroll attempts during render
+  useEffect(() => {
+    const preventScroll = (e) => {
+      if (isLoading) {
+        e.preventDefault();
+        window.scrollTo(0, 0);
+      }
+    };
+
+    if (isLoading) {
+      window.addEventListener('scroll', preventScroll, { passive: false });
+      document.addEventListener('touchmove', preventScroll, { passive: false });
+      
+      return () => {
+        window.removeEventListener('scroll', preventScroll);
+        document.removeEventListener('touchmove', preventScroll);
+      };
+    }
+  }, [isLoading]);
 
   // Get product data from products file
   const productData = getProductById(productId);
@@ -49,8 +153,54 @@ const ProductDetails = () => {
     }
   };
 
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && selectedImage < product.images.length - 1) {
+      setSelectedImage(selectedImage + 1);
+    }
+    if (isRightSwipe && selectedImage > 0) {
+      setSelectedImage(selectedImage - 1);
+    }
+  };
+
+  // Navigation functions
+  const goToNextImage = () => {
+    if (selectedImage < product.images.length - 1) {
+      setSelectedImage(selectedImage + 1);
+    }
+  };
+
+  const goToPrevImage = () => {
+    if (selectedImage > 0) {
+      setSelectedImage(selectedImage - 1);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <>
+      {/* Loading overlay to prevent flash of content at wrong scroll position */}
+      {isLoading && (
+        <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+        </div>
+      )}
+      
+      <div className={`min-h-screen bg-gray-50 py-8 ${isLoading ? 'invisible' : 'visible'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <div className="mb-6 text-sm text-gray-600">
@@ -71,22 +221,86 @@ const ProductDetails = () => {
               </div>
             )}
 
-            {/* Main Image */}
-            <div className="rounded-2xl overflow-hidden bg-white">
-              <img
-                src={product.images[selectedImage]}
-                alt={product.name}
-                className="w-full h-auto object-contain"
-              />
+            {/* Main Image with Mobile Swipe Support */}
+            <div className="relative">
+              {/* Desktop/Tablet: Clickable image with navigation arrows */}
+              <div className="hidden sm:block rounded-2xl overflow-hidden bg-white">
+                <img
+                  src={product.images[selectedImage]}
+                  alt={product.name}
+                  className="w-full h-auto object-contain"
+                />
+                
+                {/* Navigation Arrows for Desktop */}
+                {product.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={goToPrevImage}
+                      disabled={selectedImage === 0}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 z-10"
+                      aria-label="Previous image"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    
+                    <button
+                      onClick={goToNextImage}
+                      disabled={selectedImage === product.images.length - 1}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-300 z-10"
+                      aria-label="Next image"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </>
+                )}
+              </div>
+
+              {/* Mobile: Swipeable image carousel */}
+              <div className="sm:hidden">
+                <div 
+                  ref={imageContainerRef}
+                  className="relative rounded-2xl overflow-hidden bg-white touch-pan-x"
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  <div 
+                    className="flex transition-transform duration-300 ease-out"
+                    style={{ transform: `translateX(-${selectedImage * 100}%)` }}
+                  >
+                    {product.images.map((image, index) => (
+                      <div key={index} className="w-full flex-shrink-0">
+                        <img
+                          src={image}
+                          alt={`${product.name} ${index + 1}`}
+                          className="w-full h-auto object-contain"
+                          loading={index === 0 ? 'eager' : 'lazy'}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Swipe Hint - only shows briefly on first image */}
+                  {product.images.length > 1 && selectedImage === 0 && (
+                    <div className="absolute top-4 right-4 bg-black/70 text-white text-xs px-2 py-1 rounded-full animate-pulse opacity-70">
+                      Swipe →
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* Thumbnail Images - Horizontal Scroll */}
-            <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide">
+            <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide snap-x snap-mandatory">
               {product.images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`flex-shrink-0 border-2 rounded-lg overflow-hidden p-1 transition-all duration-300 ${
+                  className={`flex-shrink-0 border-2 rounded-lg overflow-hidden p-1 transition-all duration-300 snap-start ${
                     selectedImage === index
                       ? 'border-primary bg-green-50'
                       : 'border-gray-200 hover:border-primary'
@@ -183,17 +397,22 @@ const ProductDetails = () => {
         {/* Specifications */}
         <div className="mt-8 bg-white rounded-2xl shadow-lg p-6 md:p-8">
           <h2 className="text-2xl font-bold mb-6">Specifications</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-3">
             {Object.entries(product.specifications).map(([key, value]) => (
-              <div key={key} className="flex justify-between border-b pb-3">
-                <span className="font-semibold text-gray-700">{key}:</span>
-                <span className="text-gray-600">{value}</span>
+              <div key={key} className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-2 border-b border-gray-200 pb-3 last:border-b-0">
+                <div className="sm:col-span-1">
+                  <span className="font-semibold text-gray-800 text-sm sm:text-base block">{key}:</span>
+                </div>
+                <div className="sm:col-span-2">
+                  <span className="text-gray-600 text-sm sm:text-base leading-relaxed block">{value}</span>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
