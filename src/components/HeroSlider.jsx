@@ -6,19 +6,23 @@ const HeroSlider = () => {
   const slides = [
     {
       id: 1,
-      image: '/WEB All Baneers Design PNG IMAGES/Banner-01.png',
+      desktopImage: '/WEB All Baneers Design PNG IMAGES/Banner-01.png',
+      mobileImage: '/Banner Mobile View/1.png',
     },
     {
       id: 2,
-      image: '/WEB All Baneers Design PNG IMAGES/Banner-02.png',
+      desktopImage: '/WEB All Baneers Design PNG IMAGES/Banner-02.png',
+      mobileImage: '/Banner Mobile View/2.png',
     },
     {
       id: 3,
-      image: '/WEB All Baneers Design PNG IMAGES/Banner-03.png',
+      desktopImage: '/WEB All Baneers Design PNG IMAGES/Banner-03.png',
+      mobileImage: '/Banner Mobile View/3.png',
     },
     {
       id: 4,
-      image: '/WEB All Baneers Design PNG IMAGES/Banner-04.png',
+      desktopImage: '/WEB All Baneers Design PNG IMAGES/Banner-04.png',
+      mobileImage: '/Banner Mobile View/4.png',
     },
   ];
 
@@ -30,9 +34,9 @@ const HeroSlider = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
+  // const goToSlide = (index) => {
+  //   setCurrentSlide(index);
+  // };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -43,18 +47,40 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="relative w-full bg-gray-100">
-      {/* Slides Container - Using aspect ratio instead of fixed heights */}
-      <div className="relative w-full aspect-[16/9] sm:aspect-[16/8] md:aspect-[16/7] lg:aspect-[16/6] overflow-hidden">
+    <div className="relative w-full bg-white">
+      {/* Mobile Container - Optimized for mobile banner images */}
+      <div className="block sm:hidden relative w-full aspect-[3.8/3] overflow-hidden">
         {slides.map((slide, index) => (
           <div
-            key={slide.id}
+            key={`mobile-${slide.id}`}
             className={`absolute inset-0 transition-opacity duration-1000 ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
+            {/* Mobile Image */}
             <img 
-              src={slide.image}
+              src={slide.mobileImage}
+              alt={`Mobile Banner ${slide.id}`}
+              className="w-full h-full object-contain bg-white"
+              loading={index === 0 ? 'eager' : 'lazy'}
+              sizes="100vw"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop Container - Optimized for desktop banner images */}
+      <div className="hidden sm:block relative w-full aspect-[3/3] md:aspect-[12/4] lg:aspect-[10/2] overflow-hidden">
+        {slides.map((slide, index) => (
+          <div
+            key={`desktop-${slide.id}`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            {/* Desktop Image */}
+            <img 
+              src={slide.desktopImage}
               alt={`Banner ${slide.id}`}
               className="w-full h-full object-cover"
               loading={index === 0 ? 'eager' : 'lazy'}

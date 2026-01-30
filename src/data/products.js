@@ -3,7 +3,7 @@ export const allProducts = [
   // Home Care Products
   {
     id: 'compostable-garbage-bags',
-    name: 'ECO4U 100% Compostable Garbage Bags | Plastic-Free | Strong & LeakProof | 17 x 19 Inches | Pack of 3 Rolls',
+    name: 'Compostable Garbage Bags ',
     image: '/Compostable Garbage Bags/1.png',
     price: 349,
     mrp: 499,
@@ -48,7 +48,7 @@ export const allProducts = [
   },
   {
     id: 'all-purpose-cleaner',
-    name: 'ECO4U All Purpose Natural Cleaner – Lemongrass',
+    name: 'All Purpose Natural Cleaner',
     image: '/All Purpose Natural cleaner/1.png',
     price: 249,
     mrp: 299,
@@ -138,7 +138,7 @@ export const allProducts = [
   },
   {
     id: 'natural-floor-cleaner',
-    name: 'ECO4U Natural Floor Cleaner | Plant-Based Formula | Safe for All Floor Types',
+    name: 'Natural Floor Cleaner',
     image: '/NATURAL FLOOR CLEANER/1.png',
     price: 149,
     mrp: 199,
@@ -235,7 +235,7 @@ export const allProducts = [
   },
   {
     id: 'reusable-produce-bags',
-    name: 'ECO4U Reusable Produce Bags – Pack of 6 (Fruits & Vegetables Storage)',
+    name: 'Reusable Produce Bags',
     image: '/Reusable Produce Bags/1.png',
     price: 349,
     mrp: 599,
@@ -373,7 +373,7 @@ export const allProducts = [
   },
   {
     id: 'bamboo-kitchen-towels-all-purpose',
-    name: 'Reusable Bamboo Kitchen Towels – All Purpose',
+    name: 'Bamboo Kitchen Towels',
     image: '/Reusable Bamboo Kitchen Towels/1.png',
     price: 349,
     mrp: 399,
@@ -381,52 +381,6 @@ export const allProducts = [
     reviews: 35,
     categories: ['kitchen-essentials', 'bamboo-essentials'],
     badge: 'Bestseller',
-    offer: 'Add 4 Pay for 2',
-    detailImages: [
-      '/Reusable Bamboo Kitchen Towels/1.png',
-      '/Reusable Bamboo Kitchen Towels/2.png',
-      '/Reusable Bamboo Kitchen Towels/3.png',
-      '/Reusable Bamboo Kitchen Towels/4.png',
-      '/Reusable Bamboo Kitchen Towels/5.png',
-      '/Reusable Bamboo Kitchen Towels/6.png',
-      '/Reusable Bamboo Kitchen Towels/7.png',
-      '/Reusable Bamboo Kitchen Towels/8.png',
-      '/Reusable Bamboo Kitchen Towels/9.png',
-    ],
-  },
-  {
-    id: 'bamboo-kitchen-towels-face',
-    name: 'Reusable Bamboo Kitchen Towels – Face Use',
-    image: '/Reusable Bamboo Kitchen Towels/1.png',
-    price: 299,
-    mrp: 349,
-    rating: 4.8,
-    reviews: 22,
-    categories: ['kitchen-essentials', 'bamboo-essentials'],
-    offer: 'Add 4 Pay for 2',
-    detailImages: [
-      '/Reusable Bamboo Kitchen Towels/1.png',
-      '/Reusable Bamboo Kitchen Towels/2.png',
-      '/Reusable Bamboo Kitchen Towels/3.png',
-      '/Reusable Bamboo Kitchen Towels/4.png',
-      '/Reusable Bamboo Kitchen Towels/5.png',
-      '/Reusable Bamboo Kitchen Towels/6.png',
-      '/Reusable Bamboo Kitchen Towels/7.png',
-      '/Reusable Bamboo Kitchen Towels/8.png',
-      '/Reusable Bamboo Kitchen Towels/9.png',
-    ],
-  },
-
-  // Cleaning Essentials
-  {
-    id: 'bamboo-kitchen-towels-car',
-    name: 'Reusable Bamboo Kitchen Towels – Car Cleaning',
-    image: '/Reusable Bamboo Kitchen Towels/1.png',
-    price: 349,
-    mrp: 399,
-    rating: 4.7,
-    reviews: 18,
-    categories: ['cleaning-essentials', 'bamboo-essentials'],
     offer: 'Add 4 Pay for 2',
     detailImages: [
       '/Reusable Bamboo Kitchen Towels/1.png',
@@ -540,7 +494,7 @@ export const allProducts = [
   },
   {
     id: 'bamboo-cotton-ear-buds-box',
-    name: 'ECO4U Bamboo Cotton Ear Buds – 200 Swabs (100 Stems) | Eco-Friendly & Plastic-Free',
+    name: 'Bamboo Cotton Ear Buds',
     image: '/COTTON EAR BUDS - SQUARE BOX/1.png',
     price: 49,
     mrp: 65,
@@ -585,7 +539,7 @@ export const allProducts = [
   },
   {
     id: 'foot-deodorizer-spray',
-    name: 'ECO4U Foot Deodorizer Spray – 24-Hour Odor Protection | Antibacterial & Antifungal | With Tea Tree & Eucalyptus | 100 ml',
+    name: 'Foot Deodorizer Spray',
     image: '/Foot Deodorizer Spray/1.png',
     price: 349,
     mrp: 499,

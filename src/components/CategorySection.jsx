@@ -9,7 +9,7 @@ const CategorySection = ({ selectedCategory, onCategorySelect }) => {
   };
 
   return (
-    <section className="section-padding bg-gradient-to-b from-green-50 to-white">
+    <section className="py-8 sm:py-12 md:py-4 lg:py-6 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-green-50 to-white">
       <div className="max-w-7xl mx-auto">
         {/* Categories Grid - Horizontal scroll on mobile, grid on larger screens */}
         <div className="flex md:grid overflow-x-auto md:overflow-x-visible md:grid-cols-3 lg:grid-cols-7 gap-3 sm:gap-4 md:gap-6 pb-4 md:pb-0 scrollbar-hide snap-x snap-mandatory px-2 sm:px-0">

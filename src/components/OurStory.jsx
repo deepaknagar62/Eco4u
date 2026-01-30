@@ -41,28 +41,14 @@ const OurStory = () => {
 
           {/* Right Side - Image/Team */}
           <div className="relative">
-            <div className="bg-gradient-to-br from-green-600 to-green-800 rounded-3xl p-8 shadow-2xl">
-              <div className="bg-white rounded-2xl p-6">
-                {/* Placeholder for team image */}
-                <div className="aspect-video bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-6xl mb-4">🌱</div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                      {BRAND_CONFIG.name}
-                    </h3>
-                    <p className="text-gray-600">
-                      Making Sustainability Accessible
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Brand Logo */}
-                <div className="mt-6 flex justify-center">
-                  <div className="bg-primary-dark text-white px-6 py-3 rounded-full font-bold text-xl">
-                    {BRAND_CONFIG.name}
-                  </div>
-                </div>
-              </div>
+            {/* Founders Image - Full size without border */}
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="/Our Story/Founders Images.png"
+                alt="ECO4U Founders"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
 
             {/* Decorative Elements */}
