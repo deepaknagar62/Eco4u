@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ProductCard from './ProductCard';
 
-const ProductSection = ({ title, products }) => {
+const ProductSection = ({ title, products, categorySlug = null }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 4;
 
@@ -24,25 +25,27 @@ const ProductSection = ({ title, products }) => {
         {/* Section Header */}
         <div className="flex items-center justify-between mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">{title}</h2>
-          <a
-            href="/products"
-            className="text-primary font-semibold hover:underline flex items-center space-x-1 sm:space-x-2 text-sm sm:text-base touch-manipulation"
-          >
-            <span>VIEW ALL</span>
-            <svg
-              className="w-4 h-4 sm:w-5 sm:h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {categorySlug && (
+            <Link
+              to={`/category/${categorySlug}`}
+              className="text-primary font-semibold hover:underline flex items-center space-x-1 sm:space-x-2 text-sm sm:text-base touch-manipulation hover:text-primary-dark transition-colors duration-300"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </a>
+              <span>VIEW ALL</span>
+              <svg
+                className="w-4 h-4 sm:w-5 sm:h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          )}
         </div>
 
         {/* Products Carousel */}
@@ -138,6 +141,7 @@ ProductSection.propTypes = {
       offer: PropTypes.string,
     })
   ).isRequired,
+  categorySlug: PropTypes.string,
 };
 
 export default ProductSection;

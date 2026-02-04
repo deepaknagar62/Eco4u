@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, Navigate, useLocation } from 'react-router-dom';
+import { useParams, Navigate, useLocation, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getProductById } from '../data/products';
+import BRAND_CONFIG from '../config/brandConfig';
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const location = useLocation();
   const [selectedImage, setSelectedImage] = useState(0);
-  const [quantity, setQuantity] = useState(1);
   const imageContainerRef = useRef(null);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -145,13 +145,6 @@ const ProductDetails = () => {
     flipkartLink: productData.flipkartLink || `https://www.flipkart.com/search?q=eco4u+${productData.name.toLowerCase().replace(/\s+/g, '+')}`,
   };
 
-  const handleQuantityChange = (type) => {
-    if (type === 'increase') {
-      setQuantity(quantity + 1);
-    } else if (type === 'decrease' && quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
 
   // Touch handlers for mobile swipe
   const handleTouchStart = (e) => {
@@ -200,15 +193,32 @@ const ProductDetails = () => {
         </div>
       )}
       
-      <div className={`min-h-screen bg-gray-50 py-8 ${isLoading ? 'invisible' : 'visible'}`}>
+      <div className={`min-h-screen bg-gray-50 py-4 sm:py-6 md:py-8 ${isLoading ? 'invisible' : 'visible'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <div className="mb-6 text-sm text-gray-600">
-          <a href="/" className="hover:text-primary">Home</a>
-          <span className="mx-2">/</span>
-          <a href="/shop" className="hover:text-primary">Shop</a>
-          <span className="mx-2">/</span>
-          <span className="text-gray-900">{product.name}</span>
+        {/* Breadcrumb - Optimized for mobile */}
+        <div className="mb-4 sm:mb-6 text-xs sm:text-sm text-gray-600">
+          <Link to="/" className="hover:text-primary transition-colors duration-300">
+            Home
+          </Link>
+          <span className="mx-1 sm:mx-2">/</span>
+          {product.categories && product.categories.length > 0 && (() => {
+            const categorySlug = product.categories[0];
+            const category = BRAND_CONFIG.categories.find(
+              cat => cat.path === `/category/${categorySlug}`
+            );
+            return category ? (
+              <>
+                <Link
+                  to={`/category/${categorySlug}`}
+                  className="hover:text-primary transition-colors duration-300"
+                >
+                  {category.name}
+                </Link>
+                <span className="mx-1 sm:mx-2">/</span>
+              </>
+            ) : null;
+          })()}
+          <span className="text-gray-900 font-medium">{product.name}</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white rounded-2xl shadow-lg p-6 md:p-8">

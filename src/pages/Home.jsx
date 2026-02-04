@@ -120,11 +120,16 @@ const Home = () => {
         <ProductSection
           title={currentCategory?.name || 'Products'}
           products={filteredProducts}
+          categorySlug={selectedCategory}
         />
       ) : (
         <>
           {/* Bestseller Products */}
-          <ProductSection title="Bestseller" products={bestsellerProducts} />
+          <ProductSection
+            title="Bestseller"
+            products={bestsellerProducts}
+            categorySlug="shop-all"
+          />
         </>
       )}
 
