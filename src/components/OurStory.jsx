@@ -1,3 +1,4 @@
+import { getImageUrl } from '../utils/cloudinary';
 import BRAND_CONFIG from '../config/brandConfig';
 
 const OurStory = () => {
@@ -44,7 +45,7 @@ const OurStory = () => {
             {/* Founders Image - Full size without border */}
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="/Our Story/Founders Images.png"
+                src={getImageUrl('/Our Story/Founders_Images.png', { width: 800, quality: 90 })}
                 alt="ECO4U Founders"
                 className="w-full h-full object-cover"
                 loading="lazy"

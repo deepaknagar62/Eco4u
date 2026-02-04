@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { getImageUrl, ImagePresets } from '../utils/cloudinary';
 import BRAND_CONFIG from '../config/brandConfig';
 
 const Header = () => {
@@ -28,7 +29,7 @@ const Header = () => {
             <div className="flex-shrink-0">
               <a href="/" className="flex items-center">
                 <img
-                  src="/eco4u-logo.png"
+                  src={getImageUrl('/eco4u-logo.png', ImagePresets.logo)}
                   alt={BRAND_CONFIG.name}
                   className="h-12 sm:h-16 md:h-20 lg:h-24 w-auto"
                   loading="eager"

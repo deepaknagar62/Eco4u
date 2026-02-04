@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { getImageUrl, ImagePresets } from '../utils/cloudinary';
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -6,23 +7,23 @@ const HeroSlider = () => {
   const slides = [
     {
       id: 1,
-      desktopImage: '/WEB All Baneers Design PNG IMAGES/Banner-01.png',
-      mobileImage: '/Banner Mobile View/1.png',
+      desktopImage: getImageUrl('/WEB All Baneers Design PNG IMAGES/Banner-01.png', ImagePresets.heroBannerDesktop),
+      mobileImage: getImageUrl('/Banner Mobile View/1.png', ImagePresets.heroBannerMobile),
     },
     {
       id: 2,
-      desktopImage: '/WEB All Baneers Design PNG IMAGES/Banner-02.png',
-      mobileImage: '/Banner Mobile View/2.png',
+      desktopImage: getImageUrl('/WEB All Baneers Design PNG IMAGES/Banner-02.png', ImagePresets.heroBannerDesktop),
+      mobileImage: getImageUrl('/Banner Mobile View/2.png', ImagePresets.heroBannerMobile),
     },
     {
       id: 3,
-      desktopImage: '/WEB All Baneers Design PNG IMAGES/Banner-03.png',
-      mobileImage: '/Banner Mobile View/3.png',
+      desktopImage: getImageUrl('/WEB All Baneers Design PNG IMAGES/Banner-03.png', ImagePresets.heroBannerDesktop),
+      mobileImage: getImageUrl('/Banner Mobile View/3.png', ImagePresets.heroBannerMobile),
     },
     {
       id: 4,
-      desktopImage: '/WEB All Baneers Design PNG IMAGES/Banner-04.png',
-      mobileImage: '/Banner Mobile View/4.png',
+      desktopImage: getImageUrl('/WEB All Baneers Design PNG IMAGES/Banner-04.png', ImagePresets.heroBannerDesktop),
+      mobileImage: getImageUrl('/Banner Mobile View/4.png', ImagePresets.heroBannerMobile),
     },
   ];
 

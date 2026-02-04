@@ -1,3 +1,4 @@
+import { getImageUrl, ImagePresets } from '../utils/cloudinary';
 import BRAND_CONFIG from '../config/brandConfig';
 
 const SustainabilitySection = () => {
@@ -25,7 +26,7 @@ const SustainabilitySection = () => {
           {/* Plastic Waste Reduction */}
           <div className="flex flex-col items-center text-center p-4 sm:p-6 md:p-8 bg-white rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl md:shadow-2xl hover:shadow-xl sm:hover:shadow-2xl md:hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-2">
             <img
-              src="/our sustainability impact icons  /recycle  icon-01.png"
+              src={getImageUrl('/our sustainability impact icons/recycle_icon-01.png', ImagePresets.categoryIcon)}
               alt="Recycle Icon"
               className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain mb-4 sm:mb-6"
               loading="lazy"
@@ -42,8 +43,8 @@ const SustainabilitySection = () => {
           {/* Eco-friendly Product Lines */}
           <div className="flex flex-col items-center text-center p-4 sm:p-6 md:p-8 bg-white rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl md:shadow-2xl hover:shadow-xl sm:hover:shadow-2xl md:hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-2">
             <img
-              src="/our sustainability impact icons  /save tree -2.png"
-              alt="Save Tree Icon"
+              src={getImageUrl('/our sustainability impact icons/save_water_-3', ImagePresets.categoryIcon)}
+              alt="Save Water Icon"
               className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain mb-4 sm:mb-6"
               loading="lazy"
               sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 160px"
@@ -59,8 +60,8 @@ const SustainabilitySection = () => {
           {/* Water Consumption */}
           <div className="flex flex-col items-center text-center p-4 sm:p-6 md:p-8 bg-white rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl md:shadow-2xl hover:shadow-xl sm:hover:shadow-2xl md:hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-2 sm:col-span-2 lg:col-span-1">
             <img
-              src="/our sustainability impact icons  /save water -3.png"
-              alt="Save Water Icon"
+              src={getImageUrl('/our sustainability impact icons/save_tree_-2', ImagePresets.categoryIcon)}
+              alt="Save Tree Icon"
               className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 object-contain mb-4 sm:mb-6"
               loading="lazy"
               sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 160px"
