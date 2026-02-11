@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const ProductCard = ({ product }) => {
-  const { name, image, price, mrp, rating, reviews, badge, offer } = product;
+  const { name, image, price, mrp, rating, reviews, badge} = product;
   const navigate = useNavigate();
 
   const handleViewDetails = (e) => {
