@@ -103,7 +103,7 @@ const ProductCard = ({ product }) => {
           onClick={handleViewDetails}
           className="block w-full bg-primary-dark text-white font-semibold py-2 sm:py-3 rounded-full hover:bg-green-800 transition-all duration-300 transform hover:scale-105 text-center text-sm sm:text-base touch-manipulation"
         >
-          View Details
+          Buy Now
         </button>
       </div>
     </div>
