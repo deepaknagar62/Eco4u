@@ -60,7 +60,7 @@ async function main() {
   console.log('║   Upload Single Folder to Cloudinary                   ║');
   console.log('╚════════════════════════════════════════════════════════╝\n');
   
-  const folderName = 'our sustainability impact icons';
+  const folderName = 'COTTON EAR BUDS - SQUARE BOX';
   const folderPath = path.join(__dirname, 'public', folderName);
   
   if (!fs.existsSync(folderPath)) {

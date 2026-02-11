@@ -7,13 +7,14 @@ import OurStory from '../components/OurStory';
 import SustainabilitySection from '../components/SustainabilitySection';
 import { getProductsByCategory } from '../data/products';
 import BRAND_CONFIG from '../config/brandConfig';
+import { getImageUrl } from '../utils/cloudinary';
 
 // Bestseller products with actual product data
 const bestsellerProducts = [
   {
     id: 'bamboo-toothpick',
     name: 'Bamboo Toothpick',
-    image: '/toothpick/1.png',
+    image: getImageUrl('/toothpick/1.png'),
     price: 99,
     mrp: 129,
     rating: 4.6,
@@ -24,7 +25,7 @@ const bestsellerProducts = [
   {
     id: 'bamboo-cotton-ear-buds-jar',
     name: 'Bamboo Cotton Ear Buds – Jar Pack',
-    image: '/cotton buds jar/1.png',
+    image: getImageUrl('/cotton buds jar/1.png'),
     price: 199,
     mrp: 249,
     rating: 4.8,
@@ -35,7 +36,7 @@ const bestsellerProducts = [
   {
     id: 'bamboo-cotton-ear-buds-box',
     name: 'Cotton Ear Buds - Square Box',
-    image: '/COTTON EAR BUDS - SQUARE BOX/1.png',
+    image: getImageUrl('/COTTON EAR BUDS - SQUARE BOX/1.png'),
     price: 49,
     mrp: 65,
     rating: 4.7,
@@ -46,7 +47,7 @@ const bestsellerProducts = [
   {
     id: 'natural-dish-wash-liquid',
     name: 'Natural Dish Wash Liquid',
-    image: '/Natural Dish Cleaner all images/1.png',
+    image: getImageUrl('/Natural Dish Cleaner all images/1.png'),
     price: 199,
     mrp: 249,
     rating: 4.9,
@@ -57,7 +58,7 @@ const bestsellerProducts = [
   {
     id: 'shoe-cleaner-wipes',
     name: 'Shoe Cleaner Wipes – Plant-Based',
-    image: '/Shoe Cleaner Wipes/1.png',
+    image: getImageUrl('/Shoe Cleaner Wipes/1.png'),
     price: 179,
     mrp: 249,
     rating: 4.5,
@@ -68,7 +69,7 @@ const bestsellerProducts = [
   {
     id: 'sanitary-disposal-bags',
     name: 'Sanitary Disposal Bags',
-    image: '/Sanitary Disposal Bags/1.png',
+    image: getImageUrl('/Sanitary Disposal Bags/1.png'),
     price: 199,
     mrp: 249,
     rating: 4.8,
@@ -79,7 +80,7 @@ const bestsellerProducts = [
   {
     id: 'foot-deodorizer-spray',
     name: 'Foot Deodorizer Spray',
-    image: '/Foot Deodorizer Spray/1.png',
+    image: getImageUrl('/Foot Deodorizer Spray/1.png'),
     price: 349,
     mrp: 499,
     rating: 4.6,

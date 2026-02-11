@@ -206,7 +206,7 @@ export const allProducts = [
       getImageUrl('/Shoe Cleaner Wipes/5.png'),
       getImageUrl('/Shoe Cleaner Wipes/6.png'),
       getImageUrl('/Shoe Cleaner Wipes/7.png'),
-      getImageUrl('/Shoe Cleaner Wipes/8.png'),
+      getImageUrl('/Shoe Cleaner Wipes/8.jpg'),
     ],
     features: [
       'No Water Needed – Pre-moistened wipes clean shoes instantly without rinsing',
@@ -249,12 +249,12 @@ export const allProducts = [
     detailImages: [
       getImageUrl('/Reusable Produce Bags/1.png'),
       getImageUrl('/Reusable Produce Bags/2.png'),
-      getImageUrl('/Reusable Produce Bags/3.png'),
-      getImageUrl('/Reusable Produce Bags/4.png'),
+      getImageUrl('/Reusable Produce Bags/3.jpg'),
+      getImageUrl('/Reusable Produce Bags/4.jpg'),
       getImageUrl('/Reusable Produce Bags/5.png'),
       getImageUrl('/Reusable Produce Bags/6.png'),
-      getImageUrl('/Reusable Produce Bags/7.png'),
-      getImageUrl('/Reusable Produce Bags/8.png'),
+      getImageUrl('/Reusable Produce Bags/7.jpg'),
+      getImageUrl('/Reusable Produce Bags/8.jpg'),
       getImageUrl('/Reusable Produce Bags/9.png'),
     ],
     features: [
@@ -345,9 +345,9 @@ export const allProducts = [
       getImageUrl('/toothpick/3.png'),
       getImageUrl('/toothpick/4.png'),
       getImageUrl('/toothpick/5.png'),
-      getImageUrl('/toothpick/6.png'),
-      getImageUrl('/toothpick/7.png'),
-      getImageUrl('/toothpick/8.png'),
+      getImageUrl('/toothpick/6.jpg'),
+      getImageUrl('/toothpick/7.jpg'),
+      getImageUrl('/toothpick/8.jpg'),
       getImageUrl('/toothpick/9.png'),
     ],
     features: [
@@ -497,7 +497,7 @@ export const allProducts = [
   {
     id: 'bamboo-cotton-ear-buds-box',
     name: 'Bamboo Cotton Ear Buds',
-    image: getImageUrl('/COTTON EAR BUDS - SQUARE BOX/1.png'),
+    image: getImageUrl('/COTTON EAR BUDS - SQUARE BOX/1.jpg'),
     price: 49,
     mrp: 65,
     rating: 4.7,
@@ -506,7 +506,7 @@ export const allProducts = [
     offer: 'Add 4 Pay for 2',
     description: 'ECO4U Bamboo Cotton Ear Buds are made using natural bamboo sticks and ultra-soft pure cotton tips, offering a safe, hygienic and eco-friendly alternative to plastic cotton buds. Designed for daily personal care, makeup correction and hygiene needs, these ear buds are gentle on skin, strong in use and dermatologically safe. By choosing ECO4U, you take a small but meaningful step towards a cleaner and greener planet.',
     detailImages: [
-      getImageUrl('/COTTON EAR BUDS - SQUARE BOX/1.png'),
+      getImageUrl('/COTTON EAR BUDS - SQUARE BOX/1.jpg'),
       getImageUrl('/COTTON EAR BUDS - SQUARE BOX/2.png'),
       getImageUrl('/COTTON EAR BUDS - SQUARE BOX/3.png'),
       getImageUrl('/COTTON EAR BUDS - SQUARE BOX/4.png'),
