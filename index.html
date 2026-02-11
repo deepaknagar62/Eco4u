@@ -18,17 +18,29 @@
     <!-- Critical CSS for above-the-fold content -->
     <style>
       /* Critical CSS for initial load */
+      html {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100%;
+      }
+      
       body {
         margin: 0;
+        padding: 0;
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         line-height: 1.6;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100%;
       }
       
       /* Prevent FOUC */
       #root {
         min-height: 100vh;
+        overflow-y: visible;
+        overflow-x: hidden;
       }
       
       /* Loading state */

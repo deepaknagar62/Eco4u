@@ -71,9 +71,9 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="App">
+      <div className="App" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Header />
-        <main>
+        <main style={{ flex: '1 0 auto' }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product/:productId" element={<ProductDetails />} />
