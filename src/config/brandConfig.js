@@ -32,15 +32,8 @@ export const BRAND_CONFIG = {
     ],
     quickLinks: [
       { name: 'Home', path: '/' },
-      { name: 'Shop', path: '/shop' },
-      { name: 'All Products', path: '/products' },
-      { name: 'Reach Out To Us', path: '/contact' },
-      { name: 'Build Your Own Box', path: '/byob' },
-    ],
-    resources: [
-      { name: 'Blog', path: '/blog' },
-      { name: 'About Us', path: '/about' },
-      { name: 'Track Order', path: '/track-order' },
+      { name: 'All Products', path: '/category/shop-all' },
+      { name: 'About Us', path: '#about-us' },
     ],
   },
   

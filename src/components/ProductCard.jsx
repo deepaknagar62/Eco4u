@@ -5,9 +5,8 @@ const ProductCard = ({ product }) => {
   const { name, image, price, mrp, rating, reviews, badge} = product;
   const navigate = useNavigate();
 
-  const handleViewDetails = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleViewDetails = () => {
+    // Card click handler - navigates to product details
     
     // Store navigation intent in sessionStorage
     sessionStorage.setItem('navigatingToProduct', 'true');
@@ -43,7 +42,10 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="card group relative">
+    <div
+      className="card group relative cursor-pointer"
+      onClick={handleViewDetails}
+    >
       {/* Badge */}
       {badge && (
         <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-primary text-black text-xs font-bold px-2 sm:px-3 py-1 rounded-full z-10">

@@ -24,7 +24,7 @@ const bestsellerProducts = [
   },
   {
     id: 'bamboo-cotton-ear-buds-jar',
-    name: 'Bamboo Cotton Ear Buds – Jar Pack',
+    name: 'Bamboo Cotton Ear Buds',
     image: getImageUrl('/cotton buds jar/1.png'),
     price: 199,
     mrp: 249,
