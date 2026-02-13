@@ -4,10 +4,10 @@ import BRAND_CONFIG from '../config/brandConfig';
 const OurStory = () => {
   return (
     <section id="about-us" className="section-padding bg-gradient-to-b from-white to-green-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-12 items-start lg:items-center">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
           {/* Text Content - Shows first on mobile, left on desktop */}
-          <div className="space-y-3 lg:space-y-6 w-full lg:w-auto order-1 lg:order-1">
+          <div className="space-y-4 lg:space-y-6 w-full flex flex-col justify-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-dark mb-3 lg:mb-6">
               Our Story
             </h2>
@@ -41,13 +41,13 @@ const OurStory = () => {
           </div>
 
           {/* Image - Shows after text on mobile (bottom), right on desktop */}
-          <div className="relative w-full lg:w-auto order-2 lg:order-2">
+          <div className="relative w-full flex items-center justify-center">
             {/* Founders Image - Full size without border */}
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
+            <div className="rounded-3xl overflow-hidden shadow-2xl w-full">
               <img
                 src={getImageUrl('/Our Story/Founders_Images.png', { width: 800, quality: 90 })}
                 alt="ECO4U Founders"
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-cover"
                 loading="lazy"
               />
             </div>
