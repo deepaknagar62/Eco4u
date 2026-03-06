@@ -197,6 +197,8 @@ export const allProducts = [
     reviews: 12,
     categories: ['home-care', 'cleaning-essentials'],
     offer: 'Add 4 Pay for 2',
+    amazonLink: 'https://dl.flipkart.com/s/ggblFluuuN',
+    flipkartLink: 'https://dl.flipkart.com/s/t_CQP_NNNN',
     description: 'ECO4U Shoe Cleaner Wipes are pre-moistened, no-water-needed wipes that effortlessly remove dirt, dust, and surface stains from your shoes. Perfect for on-the-go cleaning — just pull, wipe, and walk.',
     detailImages: [
       getImageUrl('/Shoe Cleaner Wipes/1.png'),
@@ -338,6 +340,8 @@ export const allProducts = [
     categories: ['kitchen-essentials', 'bamboo-essentials'],
     badge: 'Bestseller',
     offer: 'Add 4 Pay for 2',
+    amazonLink: 'https://amzn.in/d/0iGbhiMh',
+    flipkartLink: 'https://dl.flipkart.com/s/tQeXdbNNNN',
     description: 'ECO4U Bamboo Toothpicks are made from natural, sustainable bamboo. These eco-friendly toothpicks are perfect for daily oral hygiene, food serving, and various household uses. Strong, splinter-free, and completely biodegradable.',
     detailImages: [
       getImageUrl('/toothpick/1.png'),
@@ -460,6 +464,8 @@ export const allProducts = [
     categories: ['personal-care', 'bamboo-essentials'],
     badge: 'Popular',
     offer: 'Add 4 Pay for 2',
+    amazonLink: 'https://dl.flipkart.com/s/tyEDJTNNNN',
+    flipkartLink: 'https://dl.flipkart.com/s/tyEDJTNNNN',
     description: 'ECO4U Bamboo Cotton Ear Buds in a convenient jar pack are made using natural bamboo sticks and ultra-soft pure cotton tips. These eco-friendly ear buds offer a safe, hygienic and sustainable alternative to plastic cotton buds, perfect for daily personal care, makeup correction and hygiene needs.',
     detailImages: [
       getImageUrl('/cotton buds jar/1.png'),
