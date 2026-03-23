@@ -45,7 +45,7 @@ const OurStory = () => {
             {/* Founders Image - Full size without border */}
             <div className="rounded-3xl overflow-hidden shadow-2xl w-full">
               <img
-                src={getImageUrl('/Our Story/founders.png', { width: 800, quality: 90 })}
+                src={getImageUrl('/Our Story/sketch-image.png', { width: 800, quality: 90 })}
                 alt="ECO4U Founders"
                 className="w-full h-auto object-cover"
                 loading="lazy"
